@@ -1,0 +1,16 @@
+package codelex.typesandvariables.practice.exercise;
+
+import java.util.Scanner;
+
+public class Exercise4 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter your name?");
+        String name = input.next();
+        System.out.println("Enter your birth year?");
+        int birthYear = input.nextInt();
+        System.out.println("My name is " + name + " and I was born in " + birthYear + ".");
+    }
+
+
+}
