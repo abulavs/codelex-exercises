@@ -1,4 +1,6 @@
-package io.codelex.getterSetters;
+package myPractice.getterSetter;
+
+import myPractice.getterSetter.Dog;
 
 public class MainMetod {
     public static void main(String[] args) {

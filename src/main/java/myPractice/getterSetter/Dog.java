@@ -1,4 +1,4 @@
-package io.codelex.getterSetters;
+package myPractice.getterSetter;
 
 public class Dog {
     public String getName() {
