@@ -14,11 +14,18 @@ public class AsciiFigure {
         String symbolTwo = "\\";
         String symbolThree = "*";
 
-        System.out.println(symbolOne.repeat(endLenght / 2) + symbolTwo.repeat(endLenght / 2));
+        String firstLineLeftPrint = symbolOne.repeat(endLenght / 2);
+        String firstLineRightPrint = symbolTwo.repeat(endLenght / 2);
+
+
+        System.out.println(firstLineLeftPrint + firstLineRightPrint);
 
         for (int i = 0; i < lineCount - 1; i++) {
-            System.out.println(symbolOne.repeat((endLenght - symbolThreeStartCount) / 2) + symbolThree.repeat(symbolThreeStartCount)
-                    + symbolTwo.repeat((endLenght - symbolThreeStartCount) / 2));
+            String otherLinesLeftPrint = symbolOne.repeat((endLenght - symbolThreeStartCount) / 2);
+            String otherLinesMiddlePrint = symbolThree.repeat(symbolThreeStartCount);
+            String otherLinesRightPrint = symbolTwo.repeat((endLenght - symbolThreeStartCount) / 2);
+
+            System.out.println(otherLinesLeftPrint + otherLinesMiddlePrint + otherLinesRightPrint);
             symbolThreeStartCount += 8;
         }
     }

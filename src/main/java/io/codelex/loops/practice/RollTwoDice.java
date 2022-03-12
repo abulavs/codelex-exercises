@@ -15,10 +15,8 @@ public class RollTwoDice {
         }
 
         Random rand = new Random();
-        int a = rand.nextInt(6);
-        a += 1;
-        int b = rand.nextInt(6);
-        b += 1;
+        int a = rand.nextInt(6) + 1;
+        int b = rand.nextInt(6) + 1;
         int sum;
         System.out.println("Desired sum: " + desiredSum);
         do {
