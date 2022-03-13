@@ -1,19 +1,29 @@
 package io.codelex.DateAndTime;
 
 import java.time.LocalDate;
-import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class Exercise2 {
     public static void main(String[] args) {
-        LocalDate date = LocalDate.of(2021, 01, 01);
-        LocalDate date2 = LocalDate.of(2022, 01, 01);
-        date.plusDays(14);
-        int month = Month.valueOf("APRIL").getValue();
-        for (LocalDate i = date; date.isBefore(date2); date = date.plusDays(14)) {
-            if ((date.getMonth().equals(month))) {
-                System.out.println(date.getDayOfMonth());
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Enter server launch date (yyyy-mm-dd)");
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate startDate = LocalDate.parse(in.nextLine(), dateFormat);
+
+        System.out.println("Please enter a request date?  (yyyy-mm)");
+        LocalDate requestDate = LocalDate.parse(in.nextLine() + "-01", dateFormat);
+
+
+        for (LocalDate i = startDate; startDate.isBefore(startDate.plusYears(7000)); startDate = startDate.plusDays(14)) {
+            if (startDate.getMonth().equals(requestDate.getMonth()) && startDate.getYear() == (requestDate.getYear())) {
+                System.out.println(startDate.getDayOfMonth());
+            }
+            if (startDate.isAfter(requestDate.plusMonths(1))) {
+                break;
             }
         }
     }
 }
-//System.out.println(Month.valueOf("APRIL").getValue());
+

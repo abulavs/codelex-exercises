@@ -1,56 +1,50 @@
 package io.codelex.DateAndTime;
 
-import java.time.LocalDate;
-
 public class DatePeriod {
-    static LocalDate intersectionStart;
-    static LocalDate intersectionEnd;
 
     public static void main(String[] args) {
-        LocalDate firstStart = LocalDate.of(2021, 01, 01);
-        LocalDate firstEnd = LocalDate.of(2021, 07, 01);
-        LocalDate secondStart = LocalDate.of(2021, 04, 01);
-        LocalDate secondEnd = LocalDate.of(2021, 12, 01);
+        System.out.println("-----------");
+        System.out.println("       ----------");
+        Intersection date1 = new Intersection("2021-01-01", "2021-05-01", "2021-04-01", "2021-12-01");
+        date1.checkIntersection();
+        System.out.println();
 
-        intersection(firstStart, firstEnd, secondStart, secondEnd);
+        System.out.println("        ----------");
+        System.out.println("------------");
+        Intersection date2 = new Intersection("2021-05-01", "2021-12-01", "2021-01-01", "2021-06-01");
+        date2.checkIntersection();
+        System.out.println();
+
+        System.out.println("------------------");
+        System.out.println("------------------");
+        Intersection date3 = new Intersection("2021-01-01", "2021-12-01", "2021-01-01", "2021-12-01");
+        date3.checkIntersection();
+        System.out.println();
+
+        System.out.println("----------");
+        System.out.println("------------------");
+        Intersection date4 = new Intersection("2021-01-01", "2021-05-01", "2021-01-01", "2021-12-01");
+        date4.checkIntersection();
+        System.out.println();
+
+        System.out.println("------------------");
+        System.out.println("----------");
+        Intersection date5 = new Intersection("2021-01-01", "2021-12-01", "2021-01-01", "2021-06-01");
+        date5.checkIntersection();
+        System.out.println();
+
+        System.out.println("       -----------");
+        System.out.println("------------------");
+        Intersection date6 = new Intersection("2021-05-01", "2021-12-01", "2021-01-01", "2021-12-01");
+        date6.checkIntersection();
+        System.out.println();
+
+        System.out.println("------------------");
+        System.out.println("        ----------");
+        Intersection date7 = new Intersection("2021-01-01", "2021-12-01", "2021-05-01", "2021-12-01");
+        date7.checkIntersection();
+        System.out.println();
     }
 
 
-    public static void intersection(LocalDate firstStart, LocalDate firstEnd, LocalDate secondStart, LocalDate secondEnd) {
-        if (!(firstEnd.isBefore(secondStart))) {
-            intersectionStart = firstEnd;
-            intersectionEnd = secondStart;
-            System.out.println(intersectionStart + "-" + intersectionEnd);
-        }
-        if (!(secondEnd.isBefore(firstStart))) {
-            intersectionStart = firstStart;
-            intersectionEnd = secondEnd;
-            System.out.println(intersectionStart + " " + intersectionEnd);
-        }
-        if (!(firstStart.equals(secondStart)) && !(secondEnd.equals(firstEnd))) {
-            intersectionStart = firstStart;
-            intersectionEnd = secondEnd;
-            System.out.println(intersectionStart + " " + intersectionEnd);
-        }
-        if (!(firstStart.equals(secondStart)) && !(secondEnd.isBefore(firstEnd))) {
-            intersectionStart = firstStart;
-            intersectionEnd = secondEnd;
-            System.out.println(intersectionStart + " " + intersectionEnd);
-        }
-        if (!(firstStart.equals(secondStart)) && !(firstEnd.isBefore(secondEnd))) {
-            intersectionStart = firstStart;
-            intersectionEnd = firstEnd;
-            System.out.println(intersectionStart + " " + intersectionEnd);
-        }
-        if (!(firstStart.isBefore(secondStart)) && !(firstEnd.equals(secondEnd))) {
-            intersectionStart = secondStart;
-            intersectionEnd = firstEnd;
-            System.out.println(intersectionStart + " " + intersectionEnd);
-        }
-        if (!(secondStart.isBefore(firstStart)) && !(firstEnd.equals(secondEnd))) {
-            intersectionStart = firstStart;
-            intersectionEnd = firstEnd;
-            System.out.println(intersectionStart + " " + intersectionEnd);
-        }
-    }
 }
