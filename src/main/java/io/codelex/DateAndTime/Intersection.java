@@ -57,11 +57,5 @@ public class Intersection {
             intersectionEnd = firstEnd;
             System.out.println(intersectionStart + "  -  " + intersectionEnd);
         }
-
-
-        //     if (firstEnd.isBefore(secondStart) || secondEnd.isBefore(firstStart)) {
-        //         System.out.println("Intersection not detected");
-        //    }
     }
-
 }

@@ -30,9 +30,7 @@ public class DatePeriodVersion2 {
         } else {
             System.out.println(formatter.format(overlap.start) + " - " + formatter.format(overlap.end));
         }
-
     }
-
 
     private DatePeriodVersion2 intersection(DatePeriodVersion2 secondPeriod) {
         if ((end.isBefore(secondPeriod.start)) || secondPeriod.end.isBefore(start)) {
