@@ -9,12 +9,12 @@ public class Exercise3 {
 
         //fixme - calculate sum of all array elements
         int sum = 0;
-        for (int i=0;i<numbers.length;i++){
-            sum+=numbers[i];
-            
+        for (int i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+
         }
-        int average = sum/ numbers.length;
-      //  fixme - calculate average value
+        int average = sum / numbers.length;
+        //  fixme - calculate average value
         System.out.println("Average value of the array elements is : " + average);
 
     }
