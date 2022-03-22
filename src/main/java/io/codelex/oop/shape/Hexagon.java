@@ -1,32 +1,23 @@
 package io.codelex.oop.shape;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Hexagon extends Shape {
-    BigDecimal sideOne;
-    BigDecimal sideTwo;
-    BigDecimal sideThree;
-    BigDecimal sideFour;
-    BigDecimal sideFive;
-    BigDecimal sideSix;
+    BigDecimal side;
 
-    public Hexagon(double sideOne, double sideTwo, double sideThree, double sideFour, double sideFive, double sideSix) {
-        this.sideOne = new BigDecimal(sideOne);
-        this.sideTwo = new BigDecimal(sideTwo);
-        this.sideThree = new BigDecimal(sideThree);
-        this.sideFour = new BigDecimal(sideFour);
-        this.sideFive = new BigDecimal(sideFive);
-        this.sideSix = new BigDecimal(sideSix);
+
+    public Hexagon(double side) {
+        this.side = new BigDecimal(side);
     }
 
     @Override
     public BigDecimal calculatePerimeter() {
-        return sideOne.multiply(BigDecimal.valueOf(6));
+        return side.multiply(BigDecimal.valueOf(6));
     }
 
     @Override
     public BigDecimal calculateArea() {
-        BigDecimal firstStep = BigDecimal.valueOf(3).multiply(BigDecimal.valueOf(Math.sqrt(3))).divide(BigDecimal.valueOf(2)).multiply(sideOne.multiply(sideOne));
-        return firstStep;
+        return BigDecimal.valueOf(3).multiply(BigDecimal.valueOf(Math.sqrt(3))).divide(BigDecimal.valueOf(2)).multiply(side.multiply(side)).setScale(2, RoundingMode.HALF_UP);
     }
 }

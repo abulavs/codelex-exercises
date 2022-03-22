@@ -57,6 +57,10 @@ public class Computer {
         this.graphicsCard = graphicsCard;
     }
 
+    public void printFormated() {
+        System.out.println(company + " " + model);
+    }
+
     @Override
     public String toString() {
         return "Computer{" +
