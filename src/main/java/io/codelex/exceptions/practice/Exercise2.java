@@ -1,4 +1,4 @@
-package io.codelex.practice;
+package io.codelex.exceptions.practice;
 
 public class Exercise2 {
     public void methodA() throws ArithmeticException {

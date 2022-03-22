@@ -2,7 +2,7 @@
 
 ## Exercise #1
 
-See [Exercise1.java](./Exercise1.java)
+See [Exercise1.java](Exercise1.java)
 
 For each set of data, the program prints out the result, or an informative error message if there is a problem (division by zero or poor input data).
 
@@ -32,7 +32,7 @@ Enter the numerator: quit
 
 ## Exercise #2
 
-See [Exercise2.java](./Exercise2.java)
+See [Exercise2.java](Exercise2.java)
 
 Put a statement in methodA() that divides by zero to create an ArithmeticException.. Observe the output.
 
@@ -44,11 +44,11 @@ Notice that the stack trace contains information about which class and which met
 
 ## Exercise #3
 
-See [Exercise3.java](./Exercise3.java)
+See [Exercise3.java](Exercise3.java)
 
 ## Exercise #4
 
-See [Exercise4.java](./Exercise4.java)
+See [Exercise4.java](Exercise4.java)
 
 Define checked exception to handle cases when input is less than 0.
 
