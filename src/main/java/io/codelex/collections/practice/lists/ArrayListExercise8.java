@@ -18,7 +18,8 @@ public class ArrayListExercise8 {
         System.out.println("List before sort: " + colors);
 
         //TODO: Sort array list
-        //Collections....
+        colors.sort(String.CASE_INSENSITIVE_ORDER);
+        // List<String> sortedColors = colors.stream().sorted();
 
         System.out.println("List after sort: " + colors);
     }
