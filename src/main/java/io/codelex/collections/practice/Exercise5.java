@@ -7,36 +7,42 @@ import java.util.Scanner;
 public class Exercise5 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        List<Integer> intigerList = new ArrayList<>();
+        List<Integer> integerList = new ArrayList<>();
         System.out.println("Enter number?");
         String userNumber = input.nextLine();
-        String[] userarray = userNumber.split("");
+        String[] userArray = userNumber.split("");
         int sum = 0;
+
+        printOutCalculation(userArray, integerList, sum);
+
+        if (sum == 1) {
+            System.out.println("Integer is happy");
+        } else {
+            System.out.println("Integer is not happy");
+        }
+
+    }
+
+    private static void printOutCalculation(String[] userArray, List<Integer> integerList, int sum) {
         do {
-            for (int i = 0; i < userarray.length; i++) {
-                intigerList.add((int) Math.pow(Integer.parseInt(userarray[i]), 2));
-                if (i == userarray.length - 1) {
-                    System.out.print((Integer.parseInt((userarray[i])) + "^2 "));
+            for (int i = 0; i < userArray.length; i++) {
+                integerList.add((int) Math.pow(Integer.parseInt(userArray[i]), 2));
+                if (i == userArray.length - 1) {
+                    System.out.print((Integer.parseInt((userArray[i])) + "^2 "));
                 } else {
-                    System.out.print((Integer.parseInt((userarray[i])) + "^2 + "));
+                    System.out.print((Integer.parseInt((userArray[i])) + "^2 + "));
                 }
             }
-            for (int number : intigerList) {
+            for (int number : integerList) {
                 sum += number;
             }
             System.out.println("= " + sum);
             if (sum == 1 || sum == 4) {
                 break;
             }
-            intigerList.removeAll(intigerList);
-            userarray = String.valueOf(sum).split("");
+            integerList.removeAll(integerList);
+            userArray = String.valueOf(sum).split("");
             sum = 0;
         } while (true);
-        if (sum == 1) {
-            System.out.println("Integer is happy");
-        } else {
-            System.out.println("Integer is not happy");
-        }
     }
-
 }
