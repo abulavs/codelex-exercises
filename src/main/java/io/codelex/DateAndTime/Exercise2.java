@@ -17,13 +17,20 @@ public class Exercise2 {
 
 
         for (LocalDate i = startDate; startDate.isBefore(startDate.plusYears(7000)); startDate = startDate.plusDays(14)) {
-            if (startDate.getMonth().equals(requestDate.getMonth()) && startDate.getYear() == (requestDate.getYear())) {
+            if ((whenMonthAndYearEqual(startDate, requestDate))) {
                 System.out.println(startDate.getDayOfMonth());
             }
             if (startDate.isAfter(requestDate.plusMonths(1))) {
                 break;
             }
         }
+    }
+
+    public static boolean whenMonthAndYearEqual(LocalDate startDate, LocalDate requestDate) {
+        if (startDate.getMonth().equals(requestDate.getMonth()) && startDate.getYear() == (requestDate.getYear())) {
+            return true;
+        }
+        return false;
     }
 }
 

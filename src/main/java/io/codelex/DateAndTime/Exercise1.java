@@ -13,11 +13,18 @@ public class Exercise1 {
         int workingHours = 8;
 
         for (LocalDate i = date1; date1.isBefore(date2); date1 = date1.plusDays(1)) {
-            if (!(date1.getDayOfWeek().equals(DayOfWeek.SATURDAY)) && !(date1.getDayOfWeek().equals(DayOfWeek.SUNDAY))) {
+            if (isWorkingDay(date1)) {
                 workingDaysCount++;
             }
         }
 
         System.out.println(workingDaysCount * workingHours);
+    }
+
+    public static boolean isWorkingDay(LocalDate date) {
+        if (!(date.getDayOfWeek().equals(DayOfWeek.SATURDAY)) && !(date.getDayOfWeek().equals(DayOfWeek.SUNDAY))) {
+            return true;
+        }
+        return false;
     }
 }

@@ -3,12 +3,12 @@ package io.codelex.DateAndTime;
 import java.time.LocalDate;
 
 public class Intersection {
-    LocalDate firstStart;
-    LocalDate firstEnd;
-    LocalDate secondStart;
-    LocalDate secondEnd;
-    static LocalDate intersectionStart;
-    static LocalDate intersectionEnd;
+    private LocalDate firstStart;
+    private LocalDate firstEnd;
+    private LocalDate secondStart;
+    private LocalDate secondEnd;
+    private LocalDate intersectionStart;
+    private LocalDate intersectionEnd;
 
     public Intersection(String firstStart, String firstEnd, String secondStart, String secondEnd) {
         this.firstStart = LocalDate.parse(firstStart);
