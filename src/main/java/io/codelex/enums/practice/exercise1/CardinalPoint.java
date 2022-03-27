@@ -15,7 +15,7 @@ public enum CardinalPoint {
     }
 
 
-    public void printFormatedEnum() {
+    public static void printFormatedEnum() {
         Formatter formatter = new Formatter();
         System.out.println("---------------------------------------");
         formatter.format("|%11s %5s %10s %8s\n", "Direction", "|", "Text", "|");
@@ -28,7 +28,7 @@ public enum CardinalPoint {
     }
 
 
-    public void printOutAllEnum() {
+    public static void printOutAllEnum() {
         int count = 0;
         for (CardinalPoint point : CardinalPoint.values()) {
             System.out.println(point + ":" + point.direction + ":" + count);

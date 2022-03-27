@@ -32,26 +32,13 @@ public class Game {
     }
 
     public void whoWon() {
-        if (computerChoice.name().equals(getUserChoice())) {
+        if (computerWon()) {
+            System.out.println("Computer won!");
+            computerWins++;
+        } else if (iWon()) {
+            userWins++;
+        } else {
             System.out.println("Tie!");
-        } else if (computerChoice.name().equals(GameItems.SCISSOR.name()) && getUserChoice().equals(GameItems.PAPER.name())) {
-            System.out.println("Computer won!");
-            computerWins++;
-        } else if (computerChoice.name().equals(GameItems.STONE.name()) && getUserChoice().equals(GameItems.SCISSOR.name())) {
-            System.out.println("Computer won!");
-            computerWins++;
-        } else if (computerChoice.name().equals(GameItems.PAPER.name()) && getUserChoice().equals(GameItems.STONE.name())) {
-            System.out.println("Computer won!");
-            computerWins++;
-        } else if (computerChoice.name().equals(GameItems.PAPER.name()) && getUserChoice().equals(GameItems.SCISSOR.name())) {
-            System.out.println("Paper wrap stone, I won!");
-            userWins++;
-        } else if (computerChoice.name().equals(GameItems.SCISSOR.name()) && getUserChoice().equals(GameItems.STONE.name())) {
-            System.out.println("Scissor cuts paper, I won!");
-            userWins++;
-        } else if (computerChoice.name().equals(GameItems.STONE.name()) && getUserChoice().equals(GameItems.PAPER.name())) {
-            System.out.println("Stone breaks scissor, I won!");
-            userWins++;
         }
     }
 
@@ -89,5 +76,30 @@ public class Game {
         System.out.println("Number of trials: " + trials);
         System.out.println("I won " + userWins + "(" + (float) (userWins / (userWins + computerWins) * 100) + "%)" + "Computer won " + computerWins + "(" + computerWins / (userWins + computerWins) * 100 + "%)");
         System.out.println("Bye");
+    }
+
+    private boolean computerWon() {
+        if (computerChoice.name().equals(GameItems.SCISSOR.name()) && getUserChoice().equals(GameItems.PAPER.name())) {
+            return true;
+        } else if (computerChoice.name().equals(GameItems.STONE.name()) && getUserChoice().equals(GameItems.SCISSOR.name())) {
+            return true;
+        } else if (computerChoice.name().equals(GameItems.PAPER.name()) && getUserChoice().equals(GameItems.STONE.name())) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean iWon() {
+        if (computerChoice.name().equals(GameItems.PAPER.name()) && getUserChoice().equals(GameItems.SCISSOR.name())) {
+            System.out.println("Paper wrap stone, I won!");
+            return true;
+        } else if (computerChoice.name().equals(GameItems.SCISSOR.name()) && getUserChoice().equals(GameItems.STONE.name())) {
+            System.out.println("Scissor cuts paper, I won!");
+            return true;
+        } else if (computerChoice.name().equals(GameItems.STONE.name()) && getUserChoice().equals(GameItems.PAPER.name())) {
+            System.out.println("Stone breaks scissor, I won!");
+            return true;
+        }
+        return false;
     }
 }
