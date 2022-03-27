@@ -28,44 +28,52 @@ public class Exercise8 {
         Scanner input = new Scanner(System.in);
         int countForMisses = 0;
         int countForFinish = 0;
-        StringBuilder str = new StringBuilder();
-        System.out.println("You have "+(word.length()-3)+" moves to guess word.");
+        String str = "";
+        System.out.println("You have " + (word.length() + 1) + " moves to guess word.");
         boolean inputValidate = false;
         do {
-            System.out.println("Word :   "+Arrays.toString(emptyWordArray).replaceAll("\\[", "")
-                    .replaceAll("\\]", "").replaceAll(",", ""));
-            System.out.println();
-            System.out.println("Misses : " + str);
-            System.out.println();
-            System.out.print("Guess :   ");
-            String letter;
-
-            do{
-             letter = input.nextLine().toLowerCase();
-            if((letter.length()>1)) {
-                System.out.println("Only one letter allowed");
-            }else{
-                    inputValidate=true;
+            printOutWordMissesAndGuess(emptyWordArray, str);
+            String letter = "";
+            do {
+                letter = input.nextLine().toLowerCase();
+                if ((letter.length() > 1)) {
+                    System.out.println("Only one letter allowed");
+                } else {
+                    inputValidate = true;
                 }
-            }while(!(inputValidate));
+            } while (!(inputValidate));
 
             for (int i = 0; i < word.length(); i++) {
                 if (wordArray[i] == letter.charAt(0)) {
                     emptyWordArray[i] = letter.charAt(0);
                     countForMisses++;
                 }
-                }
-            if (!(countForMisses > 0)) {
-                str.append(letter);
             }
-            countForMisses=0;
+            if (countForMisses <= 0) {
+                str += letter;
+            }
+            countForMisses = 0;
             countForFinish++;
-        } while (!(countForFinish==word.length()-3));
-        System.out.println(Arrays.toString(emptyWordArray).replaceAll("\\[", "")
-                .replaceAll("\\]", "").replaceAll(",", ""));
+        } while (countForFinish != word.length() + 1);
+        printOutWord(emptyWordArray);
         System.out.println();
         System.out.println("Game Over");
     }
+
+    private static void printOutWordMissesAndGuess(char[] emptyWordArray, String str) {
+        printOutWord(emptyWordArray);
+        System.out.println();
+        System.out.println("Misses : " + str);
+        System.out.println();
+        System.out.print("Guess :   ");
+    }
+
+    private static void printOutWord(char[] emptyWordArray) {
+        System.out.println("Word :   " + Arrays.toString(emptyWordArray).replaceAll("\\[", "")
+                .replaceAll("\\]", "").replaceAll(",", ""));
+    }
+
+
 }
 
 

@@ -1,10 +1,11 @@
 package io.codelex.arrays.practice;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class TicTacToe {
 
-    private static char[][] board = new char[3][3];
+    private static final char[][] board = new char[3][3];
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
@@ -79,7 +80,7 @@ public class TicTacToe {
                 break;
             }
         }
-        while (!(movesCount > 8));
+        while (movesCount <= 8);
 
         System.out.println("Game Over");
         if (noWinner && isEnd) {
@@ -87,14 +88,14 @@ public class TicTacToe {
         }
     }
 
-    public static void initBoard() {
+    private static void initBoard() {
         // fills up the board with blanks
         for (int r = 0; r < 3; r++)
             for (int c = 0; c < 3; c++)
                 board[r][c] = ' ';
     }
 
-    public static boolean inputValidation(int i) {
+    private static boolean inputValidation(int i) {
         boolean inputIsValid = false;
         if (i >= 0 && i <= 2) {
             inputIsValid = true;
@@ -102,86 +103,91 @@ public class TicTacToe {
         return inputIsValid;
     }
 
-    public static boolean movesX(int i, int j) {
-        boolean xReturn = false;
+    private static boolean movesX(int i, int j) {
         if ((String.valueOf(board[i][j])).equals("X") || (String.valueOf(board[i][j])).equals("O")) {
-            xReturn = false;
+            return false;
         } else {
             board[i][j] = 'X';
-            xReturn = true;
+            return true;
         }
-        return xReturn;
     }
 
-    public static boolean movesO(int o, int q) {
-        boolean oReturn = false;
+    private static boolean movesO(int o, int q) {
         if ((String.valueOf(board[o][q])).equals("X") || (String.valueOf(board[o][q])).equals("O")) {
-            oReturn = false;
+            return false;
         } else {
             board[o][q] = 'O';
-            oReturn = true;
+            return true;
         }
-        return oReturn;
     }
 
-    public static boolean validationX() {
-        boolean xWon = false;
-        if ((String.valueOf(board[0][0])).equals("X") && (String.valueOf(board[0][1])).equals("X") && (String.valueOf(board[0][2])).equals("X")) {
-            xWon = true;
-        } else if ((String.valueOf(board[1][0])).equals("X") && (String.valueOf(board[1][1])).equals("X") && (String.valueOf(board[1][2])).equals("X")) {
-            xWon = true;
-        } else if ((String.valueOf(board[2][0])).equals("X") && (String.valueOf(board[2][1])).equals("X") && (String.valueOf(board[2][2])).equals("X")) {
-            xWon = true;
-        } else if ((String.valueOf(board[0][0])).equals("X") && (String.valueOf(board[1][0])).equals("X") && (String.valueOf(board[2][0])).equals("X")) {
-            xWon = true;
-        } else if ((String.valueOf(board[0][1])).equals("X") && (String.valueOf(board[1][1])).equals("X") && (String.valueOf(board[2][1])).equals("X")) {
-            xWon = true;
-        } else if ((String.valueOf(board[0][2])).equals("X") && (String.valueOf(board[1][2])).equals("X") && (String.valueOf(board[2][2])).equals("X")) {
-            xWon = true;
-        } else if ((String.valueOf(board[0][0])).equals("X") && (String.valueOf(board[1][1])).equals("X") && (String.valueOf(board[2][2])).equals("X")) {
-            xWon = true;
-        } else if ((String.valueOf(board[2][0])).equals("X") && (String.valueOf(board[1][1])).equals("X") && (String.valueOf(board[0][2])).equals("X")) {
-            xWon = true;
+
+    private static String validationXorOWin() {
+        if ((String.valueOf(board[0][0]).equals(String.valueOf(board[0][1])) && String.valueOf(board[0][1]).equals(String.valueOf(board[0][2])))) {
+            if (String.valueOf(board[0][1]).equals("O")) {
+                return "O";
+            } else if (String.valueOf(board[0][1]).equals("X")) {
+                return "X";
+            }
+        } else if (String.valueOf(board[1][0]).equals(String.valueOf(board[1][1])) && String.valueOf(board[1][1]).equals(String.valueOf(board[1][2]))) {
+            if (String.valueOf(board[1][0]).equals("O")) {
+                return "O";
+            } else if (String.valueOf(board[1][0]).equals("X")) {
+                return "X";
+            }
+        } else if ((String.valueOf(board[2][0])).equals(String.valueOf(board[2][1])) && String.valueOf(board[2][1]).equals(String.valueOf(board[2][2]))) {
+            if (String.valueOf(board[2][0]).equals("O")) {
+                return "O";
+            } else if (String.valueOf(board[2][0]).equals("X")) {
+                return "X";
+            }
+        } else if (String.valueOf(board[0][0]).equals(String.valueOf(board[1][0])) && String.valueOf(board[1][0]).equals(String.valueOf(board[2][0]))) {
+            if (String.valueOf(board[0][0]).equals("O")) {
+                return "O";
+            } else if (String.valueOf(board[0][0]).equals("X")) {
+                return "X";
+            }
+        } else if ((String.valueOf(board[0][1])).equals(String.valueOf(board[1][1])) && (String.valueOf(board[1][1])).equals(String.valueOf(board[2][1]))) {
+            if (String.valueOf(board[0][1]).equals("O")) {
+                return "O";
+            } else if (String.valueOf(board[0][1]).equals("X")) {
+                return "X";
+            }
+        } else if ((String.valueOf(board[0][2])).equals(String.valueOf(board[1][2])) && (String.valueOf(board[1][2])).equals(String.valueOf(board[2][2]))) {
+            if (String.valueOf(board[0][2]).equals("O")) {
+                return "O";
+            } else if (String.valueOf(board[0][2]).equals("X")) {
+                return "X";
+            }
+        } else if ((String.valueOf(board[0][2])).equals(String.valueOf(board[1][1])) && (String.valueOf(board[1][1])).equals(String.valueOf(board[2][2]))) {
+            if (String.valueOf(board[0][2]).equals("O")) {
+                return "O";
+            } else if (String.valueOf(board[0][2]).equals("X")) {
+                return "X";
+            }
+        } else if ((String.valueOf(board[2][0])).equals(String.valueOf(board[1][1])) && (String.valueOf(board[1][1])).equals(String.valueOf(board[0][2]))) {
+            if (String.valueOf(board[2][0]).equals("O")) {
+                return "O";
+            } else if (String.valueOf(board[2][0]).equals("X")) {
+                return "X";
+            }
         }
-        return xWon;
+        return null;
     }
 
-    public static boolean validationO() {
-        boolean oWon = false;
-        if ((String.valueOf(board[0][0])).equals("O") && (String.valueOf(board[0][1])).equals("O") && (String.valueOf(board[0][2])).equals("O")) {
-            oWon = true;
-        } else if ((String.valueOf(board[1][0])).equals("O") && (String.valueOf(board[1][1])).equals("O") && (String.valueOf(board[1][2])).equals("O")) {
-            oWon = true;
-        } else if ((String.valueOf(board[2][0])).equals("O") && (String.valueOf(board[2][1])).equals("O") && (String.valueOf(board[2][2])).equals("O")) {
-            oWon = true;
-        } else if ((String.valueOf(board[0][0])).equals("O") && (String.valueOf(board[1][0])).equals("O") && (String.valueOf(board[2][0])).equals("O")) {
-            oWon = true;
-        } else if ((String.valueOf(board[0][1])).equals("O") && (String.valueOf(board[1][1])).equals("O") && (String.valueOf(board[2][1])).equals("O")) {
-            oWon = true;
-        } else if ((String.valueOf(board[0][2])).equals("O") && (String.valueOf(board[1][2])).equals("O") && (String.valueOf(board[2][2])).equals("O")) {
-            oWon = true;
-        } else if ((String.valueOf(board[0][0])).equals("O") && (String.valueOf(board[1][1])).equals("O") && (String.valueOf(board[2][2])).equals("O")) {
-            oWon = true;
-        } else if ((String.valueOf(board[2][0])).equals("O") && (String.valueOf(board[1][1])).equals("O") && (String.valueOf(board[0][2])).equals("O")) {
-            oWon = true;
-        }
-        return oWon;
-    }
-
-    public static boolean whoWon() {
+    private static boolean whoWon() {
         boolean whoWon = false;
-        if (validationO()) {
+        if (Objects.equals(validationXorOWin(), "O")) {
             System.out.println("O Won");
             whoWon = true;
-        } else if (validationX()) {
+        } else if (Objects.equals(validationXorOWin(), "X")) {
             System.out.println("X Won");
             whoWon = true;
         }
         return whoWon;
     }
 
-
-    public static void displayBoard() {
+    private static void displayBoard() {
         System.out.println("  0  " + board[0][0] + "|" + board[0][1] + "|" + board[0][2]);
         System.out.println("    --+-+--");
         System.out.println("  1  " + board[1][0] + "|" + board[1][1] + "|" + board[1][2]);
