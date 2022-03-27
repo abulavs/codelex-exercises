@@ -1,6 +1,6 @@
 package io.codelex.polymorphism.practice.exercise6;
 
-public class Cat extends Felime implements AnimalSound {
+public class Cat extends Felime {
     String breed;
 
     public Cat(String animalName, String animalType, double animalWeight, int foodEaten, String livingRegion, String breed) {
@@ -8,26 +8,21 @@ public class Cat extends Felime implements AnimalSound {
         this.breed = breed;
     }
 
-
     @Override
-    public void makeSound() {
-        System.out.println("Mrrrrr Mrrr Mrrr");
+    void makeSound() {
+        super.makeSound();
+        System.out.println("Mjauuuu");
     }
 
     @Override
     public String displayAnimal() {
         String result = super.displayAnimal();
-        result += " {" + breed + "}";
+        result += " " + breed;
         return result;
     }
 
     @Override
     public String toString() {
-        return animalType + " " + animalName + " " + animalWeight + " " + livingRegion + " " + breed;
-    }
-
-
-    public void setBreed(String breed) {
-        this.breed = breed;
+        return getAnimalType() + "[" + getAnimalName() + ", " + breed + ", " + getAnimalWeight() + ", " + livingRegion + ", " + getFoodEaten() + "]";
     }
 }

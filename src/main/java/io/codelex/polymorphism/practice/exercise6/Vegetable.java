@@ -4,7 +4,6 @@ public class Vegetable extends Food {
 
     String vegetableName;
 
-
     public Vegetable(String vegetableName, Integer quantity) {
         super(quantity);
         this.vegetableName = vegetableName;

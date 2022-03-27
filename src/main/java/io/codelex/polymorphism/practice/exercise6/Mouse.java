@@ -1,20 +1,22 @@
 package io.codelex.polymorphism.practice.exercise6;
 
-public class Mouse extends Mammal implements AnimalSound, VegetableInterface {
-
+public class Mouse extends Mammal {
 
     public Mouse(String animalName, String animalType, double animalWeight, int foodEaten, String livingRegion) {
         super(animalName, animalType, animalWeight, foodEaten, livingRegion);
     }
 
     @Override
-    public void makeSound() {
+    void makeSound() {
+        super.makeSound();
         System.out.println("pi pi pi");
     }
 
     @Override
-    public void onlyVegetableFood() {
-        System.out.println(" are not eating that type of food!");
+    void eat(Food food) {
+        if ((food instanceof Meat)) {
+            super.eat(food);
+            System.out.println(getAnimalType() + " are not eating that type of food!");
+        }
     }
-
 }

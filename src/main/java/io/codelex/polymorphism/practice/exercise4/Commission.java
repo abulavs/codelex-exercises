@@ -2,8 +2,8 @@ package io.codelex.polymorphism.practice.exercise4;
 
 public class Commission extends Hourly {
 
-    double totalSales;
-    double commissionRate;
+    private double totalSales;
+    private double commissionRate;
 
     public Commission(String eName, String eAddress, String ePhone, String socSecNumber, double rate, double commissionRate) {
         super(eName, eAddress, ePhone, socSecNumber, rate);

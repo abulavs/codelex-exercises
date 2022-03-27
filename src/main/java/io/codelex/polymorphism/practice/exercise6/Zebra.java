@@ -1,20 +1,23 @@
 package io.codelex.polymorphism.practice.exercise6;
 
-public class Zebra extends Mammal implements VegetableInterface, AnimalSound {
+public class Zebra extends Mammal {
 
 
     public Zebra(String animalName, String animalType, double animalWeight, int foodEaten, String livingRegion) {
         super(animalName, animalType, animalWeight, foodEaten, livingRegion);
     }
 
-
     @Override
-    public void onlyVegetableFood() {
-        System.out.print(" are not eating that type of food!");
+    void makeSound() {
+        super.makeSound();
+        System.out.println("ZrrrrrrrrrRRRrrrrrrrrrr");
     }
 
     @Override
-    public void makeSound() {
-        System.out.println("zrrrrrrrrrrrr");
+    void eat(Food food) {
+        if ((food instanceof Meat)) {
+            super.eat(food);
+            System.out.println(getAnimalType() + " are not eating that type of food!");
+        }
     }
 }

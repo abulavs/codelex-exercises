@@ -1,25 +1,22 @@
 package io.codelex.polymorphism.practice.exercise6;
 
-public class Tiger extends Felime implements AnimalSound {
-
+public class Tiger extends Felime {
 
     public Tiger(String animalName, String animalType, double animalWeight, int foodEaten, String livingRegion) {
         super(animalName, animalType, animalWeight, foodEaten, livingRegion);
     }
 
     @Override
-    public void makeSound() {
+    void makeSound() {
+        super.makeSound();
         System.out.println("hrrrrrrrrrrrrrrrrrrr  rr rr");
     }
 
     @Override
-    public String toString() {
-        return "Tiger{" +
-                "animalName='" + animalName + '\'' +
-                ", animalType='" + animalType + '\'' +
-                ", animalWeight=" + animalWeight +
-                ", foodEaten=" + foodEaten +
-                ", livingRegion='" + livingRegion + '\'' +
-                '}';
+    void eat(Food food) {
+        if (!(food instanceof Meat)) {
+            super.eat(food);
+            System.out.println(getAnimalType() + " are not eating that type of food!");
+        }
     }
 }
