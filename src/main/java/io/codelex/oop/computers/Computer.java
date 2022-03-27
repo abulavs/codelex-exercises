@@ -3,11 +3,11 @@ package io.codelex.oop.computers;
 import java.util.Objects;
 
 public class Computer {
-    String company;
-    String model;
-    String processor;
-    int ram;
-    String graphicsCard;
+    private String company;
+    private String model;
+    private String processor;
+    private int ram;
+    private String graphicsCard;
 
     public Computer(String company, String model, String processor, int ram, String graphicsCard) {
         this.company = company;
@@ -68,8 +68,7 @@ public class Computer {
                 ", model='" + model + '\'' +
                 ", processor='" + processor + '\'' +
                 ", ram=" + ram +
-                ", graphicsCard='" + graphicsCard + '\'' +
-                '}';
+                ", graphicsCard='" + graphicsCard + '\'';
     }
 
     @Override

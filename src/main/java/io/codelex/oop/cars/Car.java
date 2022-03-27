@@ -1,6 +1,7 @@
 package io.codelex.oop.cars;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -46,12 +47,25 @@ public class Car {
         return engineType;
     }
 
+    public Car findCar(String carName, String carModel, LinkedList<Car> cars) {
+        for (int i = 0; i < cars.size(); i++) {
+            if (cars.get(i).getName().equals(carName) && cars.get(i).getModel().equals(carModel)) {
+                return cars.get(i);
+            }
+        }
+        return null;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return price == car.price && yearOfManufacture == car.yearOfManufacture && Objects.equals(name, car.name) && Objects.equals(model, car.model) && Objects.equals(manufacturer, car.manufacturer) && engineType == car.engineType;
+        return price == car.price && yearOfManufacture == car.yearOfManufacture
+                && Objects.equals(name, car.name)
+                && Objects.equals(model, car.model)
+                && Objects.equals(manufacturer, car.manufacturer)
+                && engineType == car.engineType;
     }
 
     @Override

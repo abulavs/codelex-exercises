@@ -1,10 +1,10 @@
 package io.codelex.oop.persons;
 
 abstract class Person {
-    String firstName;
-    String lastName;
-    String id;
-    int age;
+    private String firstName;
+    private String lastName;
+    private String id;
+    private int age;
 
     public Person(String firstName, String lastName, String id, int age) {
         this.firstName = firstName;

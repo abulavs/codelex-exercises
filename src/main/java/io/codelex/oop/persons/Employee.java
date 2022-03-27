@@ -6,10 +6,10 @@ public class Employee extends Person {
     private String position;
     private LocalDate startedWorking;
 
-    public Employee(String firstName, String lastName, String id, int age, String position, String startedWorking) {
+    public Employee(String firstName, String lastName, String id, int age, String position, LocalDate startedWorking) {
         super(firstName, lastName, id, age);
         this.position = position;
-        this.startedWorking = LocalDate.parse(startedWorking);
+        this.startedWorking = startedWorking;
     }
 
     public String getPosition() {
@@ -26,6 +26,6 @@ public class Employee extends Person {
 
     @Override
     String getinfo() {
-        return firstName + " " + lastName + " " + position + " (" + getWorkExperience() + " years)";
+        return getFirstName() + " " + getLastName() + " " + position + " (" + getWorkExperience() + " years)";
     }
 }

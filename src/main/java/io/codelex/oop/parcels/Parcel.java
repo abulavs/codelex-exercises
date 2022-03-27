@@ -1,11 +1,11 @@
 package io.codelex.oop.parcels;
 
 public class Parcel implements Validatable {
-    int xLength;
-    int yLength;
-    int zLength;
-    float weight;
-    boolean isExpress;
+    private int xLength;
+    private int yLength;
+    private int zLength;
+    private float weight;
+    private boolean isExpress;
 
     public Parcel(int xLength, int yLength, int zLength, float weight, boolean isExpress) {
         this.xLength = xLength;
@@ -16,7 +16,7 @@ public class Parcel implements Validatable {
     }
 
     @Override
-    public boolean validate() {
+    public final boolean validate() {
         if (xLength + yLength + zLength > 300 || xLength > 30 && yLength > 30 && zLength > 30) {
             System.out.println("Dimensions exceed 300 or size less than 30");
         } else {

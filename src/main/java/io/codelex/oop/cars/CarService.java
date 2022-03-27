@@ -80,21 +80,12 @@ public class CarService {
                     .sorted(Comparator.comparing(Car::getName))
                     .collect(Collectors.toList());
         }
-        if (order.equals("descending")) {
-            sortedByName = cars.stream()
-                    .sorted(Comparator.comparing(Car::getName).reversed())
-                    .collect(Collectors.toList());
-        }
         return sortedByName;
     }
 
     public Car specificCar(String carName, String carModel) {
         Car carFound = null;
-        for (int i = 0; i < cars.size(); i++) {
-            if (cars.get(i).getName().equals(carName) && cars.get(i).getModel().equals(carModel)) {
-                carFound = cars.get(i);
-            }
-        }
+        carFound = carFound.findCar(carName, carModel, cars);
         return carFound;
     }
 

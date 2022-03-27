@@ -18,6 +18,10 @@ public class Hexagon extends Shape {
 
     @Override
     public BigDecimal calculateArea() {
-        return BigDecimal.valueOf(3).multiply(BigDecimal.valueOf(Math.sqrt(3))).divide(BigDecimal.valueOf(2)).multiply(side.multiply(side)).setScale(2, RoundingMode.HALF_UP);
+        return BigDecimal.valueOf(3)
+                .multiply(BigDecimal.valueOf(Math.sqrt(3)))
+                .divide(BigDecimal.valueOf(2))
+                .multiply(side.multiply(side))
+                .setScale(2, RoundingMode.HALF_UP);
     }
 }

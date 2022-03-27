@@ -3,7 +3,7 @@ package io.codelex.oop.computers;
 import java.util.Objects;
 
 public class Laptop extends Computer {
-    String battery;
+    private String battery;
 
 
     public Laptop(String company, String model, String processor, int ram, String graphicsCard, String battery) {
@@ -21,14 +21,10 @@ public class Laptop extends Computer {
 
     @Override
     public String toString() {
-        return "Laptop{" +
-                "company='" + company + '\'' +
-                ", model='" + model + '\'' +
-                ", processor='" + processor + '\'' +
-                ", ram=" + ram +
-                ", graphicsCard='" + graphicsCard + '\'' +
-                ", battery='" + battery + '\'' +
+        String result = super.toString();
+        result += ", battery='" + battery + '\'' +
                 '}';
+        return result;
     }
 
     @Override
