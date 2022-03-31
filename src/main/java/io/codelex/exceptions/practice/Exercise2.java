@@ -2,6 +2,7 @@ package io.codelex.exceptions.practice;
 
 public class Exercise2 {
     public static void main(String[] args) {
+
         methodA();
     }
 
@@ -10,24 +11,30 @@ public class Exercise2 {
             methodB();
         } catch (ArithmeticException e) {
             e.printStackTrace();
+
         }
+
     }
 
     public static void methodB() {
         try {
             methodC();
         } catch (ArithmeticException e) {
-            e.printStackTrace();
+            throw (e);
         }
     }
 
     public static void methodC() {
+
         int a = 5;
         int c = 0;
         try {
             int b = a / c;
         } catch (ArithmeticException e) {
-            e.printStackTrace();
+            throw new ArithmeticException("Arithmetic mistake at " +
+                    e.getStackTrace()[1].getClassName() + "/" +
+                    e.getStackTrace()[0].getMethodName() +
+                    "\nArithmetic mistake divide " + e.getMessage());
         }
     }
 }
