@@ -9,24 +9,28 @@ public class JoinnerTest {
     @Test
     void testString() {
         //given
-        Joiner joiner = new Joiner("asdfgh");
-        String firstExepted = "a-s-d-f-g-h";
-        Assertions.assertEquals(firstExepted, joiner.toString());
+        Joiner joiner = new Joiner("-");
+        joiner.join(1, 2, 3, 4, 5, "a", "c", false);
+        String firstExcepted = "1-2-3-4-5-a-c-false";
+
+        Assertions.assertEquals(firstExcepted, joiner.toString());
     }
 
     @Test
     void testNumber() {
         //given
-        Joiner joiner = new Joiner(123456);
-        String firstExepted = "1-2-3-4-5-6";
-        Assertions.assertEquals(firstExepted, joiner.toString());
+        Joiner joiner = new Joiner("^");
+        joiner.join(123456, true, 10.3);
+        String firstExcepted = "123456^true^10.3";
+        Assertions.assertEquals(firstExcepted, joiner.toString());
     }
 
     @Test
     void testBoolean() {
         //given
-        Joiner joiner = new Joiner(false);
-        String firstExepted = "f-a-l-s-e";
-        Assertions.assertEquals(firstExepted, joiner.toString());
+        Joiner joiner = new Joiner("|");
+        joiner.join(false, true, "true", "false");
+        String firstExcepted = "false|true|true|false";
+        Assertions.assertEquals(firstExcepted, joiner.toString());
     }
 }

@@ -6,24 +6,31 @@ import org.junit.jupiter.api.Test;
 public class BasketTest {
     @Test
     void testEmptyBasket() {
-        Basket<Integer> basket = new Basket<Integer>();
-        Exception e = Assertions.assertThrows(BasketFullException.class, () -> basket.removeFromBasket(0));
+        Basket basket = new Basket();
+        Exception e = Assertions.assertThrows(BasketEmptyException.class, () -> {
+            basket.removeFromBasket(0);
+        });
         Assertions.assertEquals("Basket Empty", e.getMessage());
     }
 
     @Test
     void testAddToMuch() {
-        Basket<Object> basket = new Basket<>();
-        basket.addToBasket(new Apple());
-        basket.addToBasket(new Apple());
-        basket.addToBasket(new Apple());
-        basket.addToBasket(new Apple());
-        basket.addToBasket(new Apple());
-        basket.addToBasket(new Apple());
-        basket.addToBasket(new Apple());
-        basket.addToBasket(new Apple());
-        basket.addToBasket(new Apple());
-        Exception e = Assertions.assertThrows(BasketFullException.class, () -> basket.addToBasket(new Apple()));
+        Basket basket = new Basket();
+        Exception e = Assertions.assertThrows(Exception.class, () -> {
+            basket.addToBasket(new Apple());
+            basket.addToBasket(new Apple());
+            basket.addToBasket(new Apple());
+            basket.addToBasket(new Apple());
+            basket.addToBasket(new Apple());
+            basket.addToBasket(new Apple());
+            basket.addToBasket(new Apple());
+            basket.addToBasket(new Apple());
+            basket.addToBasket(new Apple());
+            basket.addToBasket(new Apple());
+            basket.addToBasket(new Apple());
+            basket.addToBasket(new Apple());
+        });
+        System.out.println();
         Assertions.assertEquals("Basket Full", e.getMessage());
 
     }

@@ -1,8 +1,5 @@
-2
-2
-234
-5
-5
-75
-3
-2
+Kārlis
+false
+12345
+12.43
+Bērzs Liepa Alksnis un Ozols
