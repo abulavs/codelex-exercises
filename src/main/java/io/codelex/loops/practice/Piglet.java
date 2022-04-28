@@ -1,5 +1,3 @@
-
-
 package io.codelex.loops.practice;
 
 import java.util.Scanner;
@@ -16,7 +14,7 @@ public class Piglet {
             randomNumber = (int) (Math.random() * (6 - 1) + 1);
             System.out.println("You rolled a " + randomNumber);
             if (randomNumber == 1) {
-                score *= 0;
+                score = 0;
                 break;
             }
             score += randomNumber;

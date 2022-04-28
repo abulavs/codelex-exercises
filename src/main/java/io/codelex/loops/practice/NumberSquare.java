@@ -1,6 +1,5 @@
 package io.codelex.loops.practice;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class NumberSquare {
@@ -15,7 +14,12 @@ public class NumberSquare {
         for (int i = 0; i < numberArray.length; i++) {
             numberArray[i] = startNumber + i;
         }
-        String numberList = Arrays.toString(numberArray).replaceAll("\\[|\\]|,|\\s", "");
+        String numberList = "";
+        // String numberList =//Arrays.toString(numberArray).replaceAll("\\[|\\]|,|\\s", "");
+        for (int i = 0; i < numberArray.length; i++) {
+            numberList += Integer.toString(numberArray[i]);
+        }
+
         System.out.println(numberList);
 
         for (int j = 1; j < numberList.length(); j++) {

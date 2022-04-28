@@ -26,7 +26,7 @@ public class PhoneKeyPad {
                         System.out.print(5);
                         break;
 
-                    case 'm': case 'n': case '0':
+                    case 'm': case 'n': case 'o':
                         System.out.print(6);
                         break;
 
