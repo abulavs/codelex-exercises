@@ -23,6 +23,6 @@ public class Cat extends Felime {
 
     @Override
     public String toString() {
-        return getAnimalType() + "[" + getAnimalName() + ", " + breed + ", " + getAnimalWeight() + ", " + livingRegion + ", " + getFoodEaten() + "]";
+        return getAnimalType() + "[" + getAnimalName() + ", " + breed + ", " + getAnimalWeight() + ", " + getLivingRegion() + ", " + getFoodEaten() + "]";
     }
 }

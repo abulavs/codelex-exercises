@@ -78,10 +78,10 @@ public class AnimalAPP {
         animal.get(animal.size() - 1).eat(food.get(food.size() - 1));
         if ((food.get(food.size() - 1) instanceof Meat) && (animal.get(animal.size() - 1) instanceof Tiger)
                 || (animal.get(animal.size() - 1) instanceof Cat)) {
-            animal.get(animal.size() - 1).addFoodEaten(food.get(food.size() - 1).quantity);
+            animal.get(animal.size() - 1).addFoodEaten(food.get(food.size() - 1).getQuantity());
         } else if (food.get(food.size() - 1) instanceof Vegetable && animal.get(animal.size() - 1) instanceof Mouse ||
                 (animal.get(animal.size() - 1) instanceof Zebra)) {
-            animal.get(animal.size() - 1).addFoodEaten(food.get(food.size() - 1).quantity);
+            animal.get(animal.size() - 1).addFoodEaten(food.get(food.size() - 1).getQuantity());
         }
     }
 }

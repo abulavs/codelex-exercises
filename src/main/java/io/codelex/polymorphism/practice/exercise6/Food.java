@@ -1,7 +1,15 @@
 package io.codelex.polymorphism.practice.exercise6;
 
 abstract class Food {
-    Integer quantity;
+    private Integer quantity;
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 
     public Food(Integer quantity) {
         this.quantity = quantity;

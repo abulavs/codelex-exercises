@@ -1,7 +1,7 @@
 package io.codelex.polymorphism.practice.exercise6;
 
 public class Meat extends Food {
-    String meatName;
+    private String meatName;
 
     public Meat(String meatName, Integer quantity) {
         super(quantity);
@@ -10,7 +10,7 @@ public class Meat extends Food {
 
     @Override
     public String toString() {
-        return meatName + " " + quantity;
+        return meatName + " " + getQuantity();
 
     }
 }

@@ -11,6 +11,6 @@ public class Vegetable extends Food {
 
     @Override
     public String toString() {
-        return vegetableName + " " + quantity;
+        return vegetableName + " " + getQuantity();
     }
 }
