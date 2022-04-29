@@ -3,13 +3,13 @@ package io.codelex.collections.practice.flightPlanner;
 import java.util.*;
 
 public class FlightsList {
-    private List<Flights> fligtsObject = new ArrayList<>();
+    private List<Flights> flightsObject = new ArrayList<>();
     private List<String> flyRoute = new ArrayList<>();
     private String lastCity;
     private String startCity;
 
-    public void setFligtsObject(Flights fligtsObject) {
-        this.fligtsObject.add(fligtsObject);
+    public void setFlightsObject(Flights flightsObject) {
+        this.flightsObject.add(flightsObject);
     }
 
     public String getStartCity() {
@@ -52,9 +52,8 @@ public class FlightsList {
                     break;
                 } else if (userChoice.equals("#")) {
                     System.exit(0);
-                } else {
-                    throw new InputMismatchException();
                 }
+
             } catch (InputMismatchException e) {
                 System.out.println("Wrong input");
             }
@@ -65,8 +64,8 @@ public class FlightsList {
         Scanner input = new Scanner(System.in);
         int counter = 0;
         Set<String> myList = new HashSet<>();
-        for (int i = 0; i < fligtsObject.size(); i++) {
-            myList.add(fligtsObject.get(i).getStartCity());
+        for (int i = 0; i < flightsObject.size(); i++) {
+            myList.add(flightsObject.get(i).getStartCity());
         }
         List<String> copyOfMyList = new ArrayList<>(myList);
         for (String s : copyOfMyList) {
@@ -95,21 +94,32 @@ public class FlightsList {
     }
 
     private void printNextCity() {
-        Scanner input = new Scanner(System.in);
+
         int counter = 0;
-        Set<String> myList = new HashSet<>();
-        for (int i = 0; i < fligtsObject.size(); i++) {
-            if (fligtsObject.get(i).getStartCity().equals(lastCity) && !fligtsObject.get(i).getEndCity().equals(lastCity)) {
-                myList.add(fligtsObject.get(i).getEndCity());
-            }
-        }
-        List<String> copyOfMyList = new ArrayList<>(myList);
+        Set<String> nextCityList = createNextCityList();
+
+        List<String> copyOfMyList = new ArrayList<>(nextCityList);
         for (String s : copyOfMyList) {
             System.out.println(counter + " - " + s);
             counter++;
         }
 
         System.out.println("Choice next city?");
+        userChoiceMenu(copyOfMyList);
+    }
+
+    private Set<String> createNextCityList() {
+        Set<String> nextCityList = new HashSet<>();
+        for (int i = 0; i < flightsObject.size(); i++) {
+            if (flightsObject.get(i).getStartCity().equals(lastCity) && !flightsObject.get(i).getEndCity().equals(lastCity)) {
+                nextCityList.add(flightsObject.get(i).getEndCity());
+            }
+        }
+        return nextCityList;
+    }
+
+    private void userChoiceMenu(List<String> copyOfMyList) {
+        Scanner input = new Scanner(System.in);
         do {
             try {
                 int userChoice = input.nextInt();
@@ -126,5 +136,4 @@ public class FlightsList {
             }
         } while (true);
     }
-
 }

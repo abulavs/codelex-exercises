@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class Exercise1 {
     public static void main(String[] args) {
-        String[] array = {"Audi", "BMW", "Honda", "Mercedes", "VolksWagen", "Mercedes", "Tesla"};
+        String[] array = {"Audi", "BMW", "Honda", "Mercedes", "Volkswagen", "Mercedes", "Tesla"};
 
         //todo - replace array with an ArrayList and print out the results
         List carsList = Arrays.asList(array);
@@ -26,12 +26,10 @@ public class Exercise1 {
         //todo - replace array with a HashMap (use brand as key and origination as value) an print out the results
         Map<String, String> listOfCars = new HashMap<>();
         for (String car : array) {
-            if (car.equals("Audi") || car.equals("BMW") || car.equals("Mercedes") || car.equals("VolksWagen"))
-                listOfCars.put(car, "Germany");
-            else if (car.equals("Honda")) {
-                listOfCars.put(car, "Japan");
-            } else if (car.equals("Tesla")) {
-                listOfCars.put(car, "USA");
+            switch (car) {
+                case "Audi", "BMW", "Mercedes", "Volkswagen" -> listOfCars.put(car, "Germany");
+                case "Honda" -> listOfCars.put(car, "Japan");
+                case "Tesla" -> listOfCars.put(car, "USA");
             }
         }
         System.out.println(listOfCars);

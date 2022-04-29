@@ -18,7 +18,7 @@ public class Histogram {
 
         String[] scoresArray = scores.split(" ");
         List<Integer> scoresList = new ArrayList<>();
-        FillScoresList(scoresArray, scoresList);
+        fillScoresList(scoresArray, scoresList);
 
         List<Integer> rangeListToCompare = new ArrayList<>();
 
@@ -34,7 +34,7 @@ public class Histogram {
                 .orElseThrow(IllegalStateException::new);
     }
 
-    private static void FillScoresList(String[] scoresArray, List<Integer> scoresList) {
+    private static void fillScoresList(String[] scoresArray, List<Integer> scoresList) {
         for (String s : scoresArray) {
             scoresList.add(Integer.parseInt(s));
         }
@@ -63,7 +63,7 @@ public class Histogram {
 
             rangeList.removeAll(rangeList);
             scoresList.removeAll(scoresList);
-            FillScoresList(scoresArray, scoresList);
+            fillScoresList(scoresArray, scoresList);
             startPosition += 10;
             endPosition += 10;
         }
