@@ -1,0 +1,9 @@
+Cat Garfield 5 Home Persian
+Meat 3
+Tiger Alice 7 Africa
+Vegetable 15
+Mouse Mice 1 Home
+Vegetable 15
+Zebra Alfred 300 Africa
+Meat 3
+End
